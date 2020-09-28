@@ -1,0 +1,11 @@
+language: generic 
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t kalinkatev/docker-react -f Dockerfile.dev . #tag it instead of getting the container ID
+
+
+script:
+  - docker run -e CI=true kalinkatev/docker-react npm run test
