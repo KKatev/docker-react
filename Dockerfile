@@ -10,4 +10,5 @@ RUN npm run build
 # we need only /app/build from this contained
 
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
